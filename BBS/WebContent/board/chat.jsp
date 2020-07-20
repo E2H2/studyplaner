@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name = "viewport" content = "width = device-width", initial-scale ="1">
 <link rel="stylesheet" href="css/bootstrap.css">
-<title>식단표</title>
+<title>채팅방</title>
 </head>
 <body>
 <image src = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FvzfLZ%2FbtqFveYYKnD%2FVKlP0zP4T3y9SZCxYbf3JK%2Fimg.jpg">
@@ -73,7 +73,60 @@
 	</nav>
 
 
-채팅창 뜨는 곳
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 700px;
+            height: 500px;
+            border: 1px solid black;
+            background: ivory;
+        }
+        #chatView {
+            height: 90%;
+            overflow-y: scroll;
+        }
+        #chatForm {
+            height: 10%;
+            border-top: 1px solid black;
+            text-align: center;
+        }
+        #msg {
+            width: 80%;
+            height: 32px;
+            border-radius: 8px;
+        }
+        #send {
+            width: 16%;
+            height: 34px;
+            border-radius: 50px;
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="chatView">
+        </div>
+        <form id="chatForm" onsubmit="return false">
+            <input type="text" id="msg">
+            <input type="submit" id="send" value="전송">
+        </form>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        
+    </script>
+
 
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js">
