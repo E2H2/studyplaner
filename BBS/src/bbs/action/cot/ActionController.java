@@ -76,6 +76,7 @@ import javax.servlet.http.HttpServletResponse;
 		   }
 		   
 		   
+		   
 		   //액션 모음
 		   else if (command.equals("/gologinAction.bo")) { 				//로그인
 			   forward=new ActionForward();
@@ -108,6 +109,17 @@ import javax.servlet.http.HttpServletResponse;
 			   forward.setRedirect(false);
 			   forward.setPath("./board/writeAction.jsp");
 		   }
+		   else if (command.equals("/gotimerAction.bo")) {			//타이머 저장
+			   forward=new ActionForward();
+			   forward.setRedirect(false);
+			   forward.setPath("./board/timerAction.jsp");			   
+		   }
+		   else if (command.equals("/golistAction.bo")) {			//타이머 저장
+			   forward=new ActionForward();
+			   forward.setRedirect(false);
+			   forward.setPath("./board/listAction.jsp");			   
+		   }
+		   
 		   
 
 		   

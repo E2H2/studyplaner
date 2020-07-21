@@ -1,14 +1,96 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.io.PrintWriter" %>        
+<%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
 <html>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
-   <script src="js/bootstrap.js"></script> 
+   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+   <script src="js/bootstrap.js"></script>
+   <!-- 그래프 HTML -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+   <!-- 통계표  -->
 <script type="text/javascript">
+google.charts.load('current', {'packages':['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawStuff);
+
+function drawStuff() {
+  var chartDiv = document.getElementById('chart_div');
+
+  var data = google.visualization.arrayToDataTable([
+    ['공부 시간', '지난 주 공부 시간', '이번 주 공부 시간'],
+    ['월', 8.6, 3.3],
+    ['화', 5.5, 8.5],
+    ['수', 7.6, 4.3],
+    ['목', 5.9, 6.9],
+    ['금', 6.4, 7.1],
+    ['토', 9.7, 6.1],
+    ['일', 5.6, 4.1]
+  ]);
+
+  var materialOptions = {
+    width: 500,
+    chart: {
+      title: '공부 시간 통계',
+    },
+    series: {
+      0: { axis: 'distance' }, // Bind series 0 to an axis named 'distance'.
+      1: { axis: 'brightness' } // Bind series 1 to an axis named 'brightness'.
+    },
+    axes: {
+      y: {
+        distance: {label: '시간'}, // Left y-axis.
+      }
+    }
+  };
+
+  function drawMaterialChart() {
+    var materialChart = new google.charts.Bar(chartDiv);
+    materialChart.draw(data, google.charts.Bar.convertOptions(materialOptions));
+    button.innerText = 'Change to Classic';
+    button.onclick = drawClassicChart;
+  }
+
+  function drawClassicChart() {
+    var classicChart = new google.visualization.ColumnChart(chartDiv);
+    classicChart.draw(data, classicOptions);
+    button.innerText = 'Change to Material';
+    button.onclick = drawMaterialChart;
+  }
+
+  drawMaterialChart();
+}
+<!--두 번째 통계 그래프-->
+google.charts.load('current', {packages: ['corechart', 'line']});
+google.charts.setOnLoadCallback(drawLogScales);
+
+function drawLogScales() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'X');
+      data.addColumn('number', '지난 주 성취율');
+      data.addColumn('number', '이번 주 성취율');
+
+      data.addRows([
+        ['월', 0.8, 0.5],    ['화', 0.8, 0.65],   ['수', 0.75, 0.15],  ['목', 0.71, 0.90],   ['금', 0.8, 0.6],  ['토', 0.9, 0.5], ['일', 0.81, 0.38]
+      ]);
+
+      var options = {
+        hAxis: {
+          title: '요일',
+          logScale: true
+        },
+        vAxis: {
+          title: '성취율',
+          logScale: false
+        },
+        colors: ['#a52714', '#097138']
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div2'));
+      chart.draw(data, options);
+    }
+
 function rowAdd() {
     var objRow;
     objRow = document.all["tblShow"].insertRow();
@@ -117,7 +199,7 @@ if(time != 0){
 <link rel="stylesheet" href="css/bootstrap.css">
 <title>HRD 학습관리 사이트</title>
 </head>
-   
+
 <body>
 <image src = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FvzfLZ%2FbtqFveYYKnD%2FVKlP0zP4T3y9SZCxYbf3JK%2Fimg.jpg">
    <%
@@ -147,7 +229,7 @@ if(time != 0){
          </ul>
          <%
             if(userID == null){
-         %>   
+         %>
             <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
                <a href="#" class="dropdown-toggle"
@@ -159,7 +241,7 @@ if(time != 0){
             </ul>
             </li>
          </ul>
-         <%      
+         <%
             }else{
          %>
          <ul class="nav navbar-nav navbar-right">
@@ -172,13 +254,13 @@ if(time != 0){
                </ul>
             </li>
          </ul>
-         <%                     
+         <%
             }
-         %>      
+         %>
       </div>
    </nav>
    </image>
-   
+
    <table border="0" width="100px"><!--전체 윤곽 테이블 시작-->
     <td colspan="1"><!--첫째줄 td 시작 colspan 을 빼 먹지 마세요!!-->
      <table border="0" width="380" height="50" >
@@ -206,10 +288,10 @@ if(time != 0){
         <td>성취여부</td>
     </tr>
     <tbody id="tblShow"></tbody>
-</table>
+</table></table>
 
-
-</table>
+<div id="chart_div" style="width: 300px; height: 200px;"></div>
+<div id="chart_div2" style="width: 500px; height: 200px;"></div>
 </body>
 
 </html>

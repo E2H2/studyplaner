@@ -34,7 +34,7 @@
 		script.println("alert('입력이 안된 부분이 있습니다.')");
 		script.println("history.back()");
 		script.println("</script>");
-	} else{
+	} else{  //가입 성공후  DB에 입력되는 부분
 		UserDAO userDAO =new UserDAO();
 		int result = userDAO.join(user);
 		if (result == -1){

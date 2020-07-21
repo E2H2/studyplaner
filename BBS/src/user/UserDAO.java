@@ -15,7 +15,7 @@ public class UserDAO {
 			try {
 				String dbURL = "jdbc:mysql://localhost:3306/BBS?serverTimezone=UTC";
 				String dbID ="root";
-				String dbPassword ="tiger";
+				String dbPassword ="xbtmepdl12";
 				Class.forName("com.mysql.jdbc.Driver");
 				conn = DriverManager.getConnection(dbURL,dbID,dbPassword);
 				
@@ -44,6 +44,8 @@ public class UserDAO {
 			}
 			return -2; //데이터 베이스 오류 값 반환
 		}
+		
+		//회원가입
 		public int join(User user) {
 			String SQL = "INSERT INTO USER VALUES (?,?,?,?,?)";
 			try {

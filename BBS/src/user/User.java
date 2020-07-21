@@ -7,6 +7,7 @@ public class User {
 	private String userName;
 	private String userTeam;
 	private String userEmail;
+	
 	public String getUserID() {
 		return userID;
 	}
