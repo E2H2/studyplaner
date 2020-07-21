@@ -8,7 +8,6 @@ public class Bbs {
 	private String bbsDate; //데이터 베이스에선 날짜지만 여기선 문자열
 	private String bbsContent;
 	private int bbsAvailable;
-	
 	public int getBbsID() {
 		return bbsID;
 	}
@@ -44,5 +43,6 @@ public class Bbs {
 	}
 	public void setBbsAvailable(int bbsAvailable) {
 		this.bbsAvailable = bbsAvailable;
-	}	
+	}
+	
 }
