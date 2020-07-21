@@ -9,7 +9,6 @@
 <title>½Ä´ÜÇ¥</title>
 </head>
 <body>
-<image src = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FvzfLZ%2FbtqFveYYKnD%2FVKlP0zP4T3y9SZCxYbf3JK%2Fimg.jpg">
 	<%
 		String userID = null;
 		if(session.getAttribute("userID") != null){

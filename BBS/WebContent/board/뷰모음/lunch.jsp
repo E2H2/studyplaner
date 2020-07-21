@@ -9,7 +9,6 @@
 <title>식단표</title>
 </head>
 <body>
-<image src = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FvzfLZ%2FbtqFveYYKnD%2FVKlP0zP4T3y9SZCxYbf3JK%2Fimg.jpg">
 	<%
 		String userID = null;
 		if(session.getAttribute("userID") != null){
@@ -32,8 +31,8 @@
 			<ul class="nav navbar-nav">
     			<li><a href="gomain.bo">메인</a></li>
     			<li><a href="gobbs.bo">게시판</a></li>
-    			<li><a href="golunch.bo">식단표</a></li>
-    			<li class="active"><a href="gochat.bo">채팅</a></li>
+    			<li class="active"><a href="golunch.bo">식단표</a></li>
+    			<li><a href="gochat.bo">채팅</a></li>
     			<li><a href="goweather.bo">날씨</a></li>
 			</ul>
 			</li>
@@ -73,7 +72,7 @@
 	</nav>
 
 
-채팅창 뜨는 곳
+식단표 뜨는 곳
 
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js">

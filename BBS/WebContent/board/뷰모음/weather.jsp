@@ -6,17 +6,15 @@
 <meta charset="UTF-8">
 <meta name = "viewport" content = "width = device-width", initial-scale ="1">
 <link rel="stylesheet" href="css/bootstrap.css">
-<title>식단표</title>
+<title>오늘의 날씨</title>
 </head>
 <body>
-<image src = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FvzfLZ%2FbtqFveYYKnD%2FVKlP0zP4T3y9SZCxYbf3JK%2Fimg.jpg">
 	<%
 		String userID = null;
 		if(session.getAttribute("userID") != null){
 			userID =(String) session.getAttribute("userID");
 		}
 	%>
-
 <nav class="navbar navbar-default">
 		<div class ="navbar-header">
 			<button type="button" class="navbar-toggle collapsed"
@@ -33,10 +31,8 @@
     			<li><a href="gomain.bo">메인</a></li>
     			<li><a href="gobbs.bo">게시판</a></li>
     			<li><a href="golunch.bo">식단표</a></li>
-    			<li class="active"><a href="gochat.bo">채팅</a></li>
-    			<li><a href="goweather.bo">날씨</a></li>
-			</ul>
-			</li>
+    			<li><a href="gochat.bo">채팅</a></li>
+    			<li class="active"><a href="goweather.bo">날씨</a></li>
 			</ul>
 			<%
 				if(userID == null){
@@ -67,13 +63,15 @@
 			</ul>
 			<%							
 				}
-			%>
-			
+			%>			
 		</div>
 	</nav>
+	<!-- 위에 내비게이션 바 표시해두는 곳 -->
 
+			
 
-채팅창 뜨는 곳
+날씨뜨는곳
+
 
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js">
