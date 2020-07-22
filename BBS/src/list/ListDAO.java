@@ -16,7 +16,7 @@ public class ListDAO {
 			try {
 				String dbURL = "jdbc:mysql://localhost:3306/BBS?serverTimezone=UTC";
 				String dbID ="root";
-				String dbPassword ="tiger";
+				String dbPassword ="1234";
 				Class.forName("com.mysql.jdbc.Driver");
 				conn = DriverManager.getConnection(dbURL,dbID,dbPassword);
 				
