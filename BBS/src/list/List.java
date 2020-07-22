@@ -1,7 +1,6 @@
 package list;
 //자바 빈즈 (리스트용)
 public class List {
-
 	private String userID;
 	private String date;
 	private String list1;
@@ -51,8 +50,4 @@ public class List {
 	public void setList5(String list5) {
 		this.list5 = list5;
 	}
-
-	
-	
-	
 }
