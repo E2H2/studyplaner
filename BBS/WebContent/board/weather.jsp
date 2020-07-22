@@ -70,13 +70,21 @@
 	<!-- 위에 내비게이션 바 표시해두는 곳 -->
 
 			
+<div class="vis-weather">
+        <h2 class="vh_hide">날씨정보</h2>
+        <p class="weather-date"></p>
+        <ul>
+            <li class="weather-temp"></li>
+            <li id="RN1">시간당강수량 : ?</li>
+            <li class="weather-state-text"></li>
+        </ul>
+    </div>
 
-날씨뜨는곳
-
-
-
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js">
-	</script> 
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="jquery.xdomainajax.js"></script>
+    <script src="weather.js"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
 	<script src="js/bootstrap.js"></script> 
 </body>
 </html>
